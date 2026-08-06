@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Brick — Proposal C · Destination Prestige</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #b8956a;
+      --gold-light: #e0c9a8;
+      --ink: #1c1916;
+      --white: #ffffff;
+      --fog: rgba(255,255,255,0.88);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Manrope', sans-serif;
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      background:
+        linear-gradient(105deg, rgba(28,25,22,0.78) 0%, rgba(28,25,22,0.35) 48%, rgba(28,25,22,0.55) 100%),
+        url('../assets/villa-night.jpg') center / cover no-repeat;
+    }
+
+    .bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.25rem clamp(1.1rem, 3.5vw, 2.75rem);
+      animation: fade 0.9s ease both;
+    }
+    .logo-link {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+      color: inherit;
+    }
+    .logo-link img {
+      width: 48px;
+      height: auto;
+      filter: brightness(1.1);
+    }
+    .logo-name {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .lang {
+      display: flex;
+      gap: 0.85rem;
+      list-style: none;
+    }
+    .lang a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      font-weight: 500;
+    }
+    .lang a.active,
+    .lang a:hover { color: var(--gold); }
+
+    .center {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1rem clamp(1.1rem, 3.5vw, 2.75rem) 2.5rem;
+      max-width: 52rem;
+      animation: rise 1.05s 0.12s ease both;
+    }
+
+    .brand-line {
+      font-family: 'Libre Bodoni', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-family: 'Libre Bodoni', serif;
+      font-weight: 400;
+      font-size: clamp(2.4rem, 6.5vw, 4.6rem);
+      line-height: 1.08;
+      margin-bottom: 1rem;
+      max-width: 14ch;
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .sub {
+      font-weight: 300;
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      line-height: 1.7;
+      color: rgba(255,255,255,0.8);
+      max-width: 32rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .paths {
+      display: grid;
+      gap: 0.85rem;
+      max-width: 34rem;
+    }
+    @media (min-width: 640px) {
+      .paths { grid-template-columns: 1fr 1fr; }
+    }
+    .path {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      padding: 1.15rem 1.25rem;
+      border: 1px solid rgba(184,149,106,0.45);
+      background: rgba(28,25,22,0.35);
+      backdrop-filter: blur(10px);
+      transition: border-color 0.3s, background 0.3s, transform 0.3s;
+    }
+    .path:hover {
+      border-color: var(--gold);
+      background: rgba(28,25,22,0.55);
+      transform: translateY(-2px);
+    }
+    .path-label {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.45rem;
+      font-weight: 500;
+    }
+    .path-title {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 1.35rem;
+      margin-bottom: 0.35rem;
+    }
+    .path-copy {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.45;
+    }
+
+    .foot {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem clamp(1.1rem, 3.5vw, 2.75rem) 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      animation: fade 1s 0.25s ease both;
+    }
+    .foot p {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      font-weight: 400;
+    }
+    .foot a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+    }
+
+    .proposal-tag {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      z-index: 20;
+      background: rgba(28,25,22,0.9);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 0.55rem 0.85rem;
+      text-decoration: none;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <header class="bar">
+      <a class="logo-link" href="../">
+        <img src="../assets/logo.png" alt="The Brick Luxury Properties">
+        <span class="logo-name">The Brick</span>
+      </a>
+      <ul class="lang">
+        <li><a class="active" href="#">IT</a></li>
+        <li><a href="#">EN</a></li>
+        <li><a href="#">DE</a></li>
+      </ul>
+    </header>
+
+    <div class="center">
+      <p class="brand-line">The Brick Luxury Properties</p>
+      <h1>Immobili di prestigio nel cuore del <em>Ticino</em></h1>
+      <p class="sub">
+        Un approccio deliberatamente di nicchia: qualità prima del volume,
+        opportunità rare e off-market, un unico referente discreto — dalla prima
+        consultazione alle chiavi in mano.
+      </p>
+      <div class="paths">
+        <a class="path" href="#">
+          <span class="path-label">Scopri</span>
+          <span class="path-title">Prestige Collection</span>
+          <span class="path-copy">Ville, attici e residenze selezionate a Lugano e sul lago.</span>
+        </a>
+        <a class="path" href="#">
+          <span class="path-label">Riservato</span>
+          <span class="path-title">Off-Market</span>
+          <span class="path-copy">Accesso condizionato alle proprietà non pubblicate.</span>
+        </a>
+      </div>
+    </div>
+
+    <footer class="foot">
+      <p>Lugano · Cannes · Milano · Dubai</p>
+      <a href="#">Contatto privato →</a>
+    </footer>
+  </section>
+
+  <a class="proposal-tag" href="../">← All proposals</a>
+</body>
+</html>

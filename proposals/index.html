@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Brick — Hero Proposals | SDW</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #b8956a;
+      --gold-dark: #8a6f4a;
+      --ink: #1a1814;
+      --white: #fff;
+      --mist: #f7f5f2;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--mist);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+    .eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 0.75rem;
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.75rem;
+    }
+    .lede {
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 42rem;
+      color: #4a4540;
+      margin-bottom: 2.5rem;
+    }
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    @media (min-width: 800px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    a.card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: var(--white);
+      border: 1px solid rgba(184, 149, 106, 0.35);
+      overflow: hidden;
+      transition: transform 0.35s ease, border-color 0.35s ease;
+    }
+    a.card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+    }
+    .thumb {
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      width: 100%;
+      display: block;
+    }
+    .meta {
+      padding: 1.25rem 1.35rem 1.5rem;
+    }
+    .label {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+    }
+    .desc {
+      font-size: 0.8rem;
+      font-weight: 300;
+      line-height: 1.55;
+      color: #5c5752;
+    }
+    .note {
+      margin-top: 2.5rem;
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: #7a746c;
+      letter-spacing: 0.04em;
+    }
+    .note a { color: var(--gold-dark); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="eyebrow">SDW · Client proposals</p>
+    <h1>The Brick Luxury Properties</h1>
+    <p class="lede">
+      Three distinct hero directions for the new luxury website.
+      Inspired by Sotheby’s International Realty, Compass, and Wetag — adapted for
+      discreet Swiss luxury and off-market positioning.
+    </p>
+
+    <div class="grid">
+      <a class="card" href="a/">
+        <img class="thumb" src="assets/villa-pool.jpg" alt="Proposal A preview">
+        <div class="meta">
+          <p class="label">Proposal A · Sotheby’s</p>
+          <p class="title">Lifestyle Editorial</p>
+          <p class="desc">Full-bleed photography, lifestyle-first headline, minimal CTA. Brand as theater.</p>
+        </div>
+      </a>
+      <a class="card" href="b/">
+        <img class="thumb" src="assets/villa-modern.jpg" alt="Proposal B preview">
+        <div class="meta">
+          <p class="label">Proposal B · Compass</p>
+          <p class="title">Refined Search</p>
+          <p class="desc">Ultra-clean white field, gold accent, elegant search as the single hero action.</p>
+        </div>
+      </a>
+      <a class="card" href="c/">
+        <img class="thumb" src="assets/villa-night.jpg" alt="Proposal C preview">
+        <div class="meta">
+          <p class="label">Proposal C · Wetag</p>
+          <p class="title">Destination Prestige</p>
+          <p class="desc">Ticino destination mood, Prestige &amp; Off-Market paths, bilingual Swiss luxury.</p>
+        </div>
+      </a>
+    </div>
+
+    <p class="note">
+      Live domain (coming soon): <a href="https://www.thebrick.realestate">www.thebrick.realestate</a>
+      · Hub: <a href="https://sdw.solutions/clients/thebrick/">sdw.solutions/clients/thebrick/</a>
+    </p>
+  </div>
+</body>
+</html>

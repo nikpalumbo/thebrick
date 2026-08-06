@@ -29,10 +29,16 @@ jobs:
         with:
           enablement: true
 
+      - name: Prepare coming-soon site only
+        run: |
+          mkdir -p site
+          cp index.html styles.css CNAME site/
+          cp -R assets site/assets
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: site
 
       - name: Deploy to GitHub Pages
         id: deployment

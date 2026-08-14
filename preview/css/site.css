@@ -422,9 +422,41 @@ a { color: inherit; }
 
 .section {
   padding: clamp(3rem, 7vw, 5rem) 0;
+  position: relative;
 }
 
 .section--white { background: var(--white); }
+
+.section--photo {
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+}
+
+.section--photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.section--photo > * {
+  position: relative;
+  z-index: 1;
+}
+
+.section--photo-cream::before {
+  background: linear-gradient(180deg, rgba(250,249,247,0.88) 0%, rgba(250,249,247,0.82) 100%);
+}
+
+.section--photo-white::before {
+  background: linear-gradient(180deg, rgba(255,255,255,0.86) 0%, rgba(255,252,247,0.8) 100%);
+}
+
+.section--photo-interior { background-image: url('../assets/hero.jpg'); }
+.section--photo-pool { background-image: url('../assets/villa-pool.jpg'); }
+.section--photo-modern { background-image: url('../assets/villa-modern.jpg'); }
+.section--photo-night { background-image: url('../assets/villa-night.jpg'); }
 
 .section-head {
   text-align: center;

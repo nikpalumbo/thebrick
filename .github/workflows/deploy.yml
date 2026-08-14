@@ -41,7 +41,6 @@ jobs:
           # Public: coming soon only
           cp coming-soon/index.html site/index.html
           cp coming-soon/styles.css site/styles.css
-          cp coming-soon/script.js site/script.js
           cp robots.txt CNAME site/
           cp -R assets site/assets
           # Client preview: full site (unlisted)

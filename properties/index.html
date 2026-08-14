@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Properties — The Brick Luxury Properties</title>
+  <meta name="description" content="Browse luxury properties for sale in Ticino — villas, penthouses, and off-market opportunities.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <section class="page-hero page-hero--compact">
+    <div class="container">
+      <span class="eyebrow" style="color:var(--gold-bright)">Catalogue</span>
+      <h1>Luxury properties in <span class="gold">Ticino</span></h1>
+      <p>Curated residences for sale — filter by location, type, and price.</p>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container">
+      <div class="catalog-toolbar">
+        <form class="filters" id="filters-form">
+          <select name="contract" id="filter-contract" aria-label="Contract">
+            <option value="">For sale</option>
+            <option value="rent">For rent</option>
+          </select>
+          <select name="type" id="filter-type" aria-label="Property type">
+            <option value="">All types</option>
+            <option value="villa">Villa</option>
+            <option value="penthouse">Penthouse</option>
+            <option value="apartment">Apartment</option>
+          </select>
+          <select name="maxPrice" id="filter-price" aria-label="Maximum price">
+            <option value="">Any price</option>
+            <option value="2000000">Up to CHF 2M</option>
+            <option value="5000000">CHF 2–5M</option>
+            <option value="10000000">CHF 5–10M</option>
+            <option value="999999999">CHF 10M+</option>
+          </select>
+          <input type="search" name="q" id="filter-q" placeholder="Location, keyword…" aria-label="Search">
+          <button class="btn btn-sm" type="submit">Apply</button>
+        </form>
+        <div class="view-toggle" role="group" aria-label="View mode">
+          <button type="button" class="is-active" data-view="grid" aria-pressed="true">Grid</button>
+          <button type="button" data-view="list" aria-pressed="false">List</button>
+        </div>
+      </div>
+
+      <p id="results-count" class="results-count"></p>
+      <div id="properties-grid" class="properties-grid view-grid"></div>
+      <p id="no-results" class="no-results" hidden>No properties match your filters. Try adjusting your search.</p>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="../js/site.js"></script>
+  <script src="../js/catalog.js"></script>
+  <script>
+    document.getElementById('site-header').innerHTML = renderHeader({ variant: 'light', active: 'properties', basePath: '../' });
+    document.getElementById('site-footer').innerHTML = renderFooter({ basePath: '../' });
+    initMobileNav();
+    initCatalog();
+  </script>
+</body>
+</html>

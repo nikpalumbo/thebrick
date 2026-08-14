@@ -29,11 +29,38 @@ jobs:
         with:
           enablement: true
 
-      - name: Prepare coming-soon site only
+      - name: Sync property data from CRM source
+        env:
+          CRM_FEED_URL: ${{ secrets.CRM_FEED_URL }}
+          CRM_FEED_TOKEN: ${{ secrets.CRM_FEED_TOKEN }}
+        run: python3 scripts/sync_crm.py
+
+      - name: Prepare site
         run: |
           mkdir -p site
-          cp index.html styles.css CNAME site/
-          cp -R assets site/assets
+          cp index.html about.html team.html contact.html robots.txt CNAME site/
+          cp -R assets css js data properties off-market site/
+          if [ -n "$OFF_MARKET_ACCESS_HASH" ]; then
+            python3 -c "
+          import json, os
+          path = 'site/data/off-market-config.json'
+          with open(path) as f: cfg = json.load(f)
+          cfg['accessHash'] = os.environ['OFF_MARKET_ACCESS_HASH']
+          with open(path, 'w') as f: json.dump(cfg, f, indent=2)
+          "
+          fi
+          if [ -n "$LEAD_WEBHOOK_URL" ]; then
+            python3 -c "
+          import json, os
+          path = 'site/data/off-market-config.json'
+          with open(path) as f: cfg = json.load(f)
+          cfg['leadWebhookUrl'] = os.environ['LEAD_WEBHOOK_URL']
+          with open(path, 'w') as f: json.dump(cfg, f, indent=2)
+          "
+          fi
+        env:
+          OFF_MARKET_ACCESS_HASH: ${{ secrets.OFF_MARKET_ACCESS_HASH }}
+          LEAD_WEBHOOK_URL: ${{ secrets.LEAD_WEBHOOK_URL }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

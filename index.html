@@ -3,31 +3,297 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Brick Luxury Properties — Coming Soon</title>
-  <meta name="description" content="The Brick Luxury Properties — it's official, coming very soon!">
+  <title>The Brick Luxury Properties — Prestige real estate in Ticino</title>
+  <meta name="description" content="The Brick Luxury Properties — curated luxury residences and off-market opportunities in Ticino, Switzerland.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
-  <main class="page">
-    <header class="header">
-      <img src="assets/logo-transparent.png?v=eps1" width="1316" height="1813" alt="The Brick Luxury Properties" class="logo">
-      <h1 class="brand-name">The Brick Luxury Properties</h1>
-    </header>
+  <section class="hero-home">
+    <div class="hero-slides" aria-hidden="true">
+      <div class="hero-slide is-active" style="background-image:url('assets/villa-pool.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('assets/villa-modern.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('assets/villa-night.jpg')"></div>
+    </div>
+    <div class="hero-veil"></div>
 
-    <section class="hero">
-      <div class="hero-image-wrap">
-        <img src="assets/hero.jpg" alt="Luxury interior with floral arrangement" class="hero-image">
+    <div id="site-header"></div>
+
+    <div class="hero-body">
+      <h1 class="hero-title">Explore the most prestigious luxury residences in <span class="gold">Ticino</span></h1>
+      <form class="search-pill" action="properties/" method="get">
+        <div class="search-field">
+          <label for="contract">Contract</label>
+          <select id="contract" name="contract">
+            <option value="">For sale</option>
+            <option value="rent">For rent</option>
+          </select>
+        </div>
+        <div class="search-field">
+          <label for="price">Price</label>
+          <select id="price" name="maxPrice">
+            <option value="">Any price</option>
+            <option value="2000000">Up to CHF 2M</option>
+            <option value="5000000">CHF 2–5M</option>
+            <option value="10000000">CHF 5–10M</option>
+            <option value="999999999">CHF 10M+</option>
+          </select>
+        </div>
+        <div class="search-field">
+          <label for="location">Location</label>
+          <input id="location" name="q" type="search" placeholder="Lugano, lake, villa…">
+        </div>
+        <button class="search-btn" type="submit">Search</button>
+      </form>
+    </div>
+
+    <div class="hero-foot">
+      <div class="hero-caption" data-hero-caption>
+        <a href="properties/detail.html?id=villa-lugano-lake">
+          <h2>Villa for sale on Lake Lugano</h2>
+          <p>A discreet lakeside residence with panoramic terrace and private garden.</p>
+        </a>
       </div>
-    </section>
+      <div class="dots" style="display:flex;gap:0.5rem;margin-top:1rem">
+        <button type="button" class="is-active" data-hero-dot aria-label="Slide 1" style="width:2rem;height:3px;border:0;background:#e0c49a;cursor:pointer;padding:0"></button>
+        <button type="button" data-hero-dot aria-label="Slide 2" style="width:2rem;height:3px;border:0;background:rgba(255,255,255,0.35);cursor:pointer;padding:0"></button>
+        <button type="button" data-hero-dot aria-label="Slide 3" style="width:2rem;height:3px;border:0;background:rgba(255,255,255,0.35);cursor:pointer;padding:0"></button>
+      </div>
+    </div>
 
-    <section class="announcement">
-      <p class="announcement-text">it&rsquo;s official coming very soon !</p>
-      <div class="divider" aria-hidden="true"></div>
-      <p class="domain">www.thebrick.realestate</p>
-    </section>
-  </main>
+    <button type="button" data-hero-prev aria-label="Previous" style="position:absolute;top:50%;left:1rem;z-index:6;transform:translateY(-50%);width:2.75rem;height:2.75rem;border:1.5px solid rgba(255,255,255,0.7);background:rgba(0,0,0,0.45);color:#fff;border-radius:50%;cursor:pointer;font-size:1.35rem">‹</button>
+    <button type="button" data-hero-next aria-label="Next" style="position:absolute;top:50%;right:1rem;z-index:6;transform:translateY(-50%);width:2.75rem;height:2.75rem;border:1.5px solid rgba(255,255,255,0.7);background:rgba(0,0,0,0.45);color:#fff;border-radius:50%;cursor:pointer;font-size:1.35rem">›</button>
+  </section>
+
+  <section class="trust-strip" aria-label="Key figures">
+    <div class="container trust-strip-inner">
+      <div class="trust-stat">
+        <span class="trust-stat-value">15+</span>
+        <span class="trust-stat-label">Years in Ticino luxury</span>
+      </div>
+      <div class="trust-stat">
+        <span class="trust-stat-value">CHF 120M+</span>
+        <span class="trust-stat-label">Properties represented</span>
+      </div>
+      <div class="trust-stat">
+        <span class="trust-stat-value">40+</span>
+        <span class="trust-stat-label">Off-market opportunities</span>
+      </div>
+      <div class="trust-stat">
+        <span class="trust-stat-value">4</span>
+        <span class="trust-stat-label">Offices · Lugano · Cannes · Milano · Dubai</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">The Brick</span>
+        <h2>Luxury properties, deliberately niche</h2>
+        <p>Quality before volume. Rare residences and discreet off-market opportunities — one trusted advisor from first consultation to keys in hand.</p>
+      </div>
+      <div class="grid-3" id="featured-properties"></div>
+      <p class="text-center mt-2"><a class="btn" href="properties/">View all properties</a></p>
+    </div>
+  </section>
+
+  <section class="section section--dark" aria-label="Recently represented">
+    <div class="container">
+      <div class="section-head section-head--light">
+        <span class="eyebrow">Track record</span>
+        <h2>Recently represented</h2>
+        <p>Selected mandates across Ticino — locations disclosed, full addresses kept confidential.</p>
+      </div>
+      <div class="represented-grid" id="represented-grid"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Process</span>
+        <h2>How we work</h2>
+        <p>A discreet, structured approach — from first conversation to keys in hand.</p>
+      </div>
+      <div class="steps-grid">
+        <article class="step-card">
+          <span class="step-num">01</span>
+          <h3>Private consultation</h3>
+          <p>We listen to your criteria, timeline, and expectations — in person in Lugano or by video call.</p>
+        </article>
+        <article class="step-card">
+          <span class="step-num">02</span>
+          <h3>Curated selection</h3>
+          <p>Access our catalogue and off-market network. Only properties that match your profile — no volume, no noise.</p>
+        </article>
+        <article class="step-card">
+          <span class="step-num">03</span>
+          <h3>Discreet closing</h3>
+          <p>Viewings, negotiation, and coordination with legal and relocation partners — one trusted advisor throughout.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Team</span>
+        <h2>Advisors you can reach directly</h2>
+        <p>Named partners with deep Ticino expertise and an international buyer network.</p>
+      </div>
+      <div class="team-grid team-grid--home">
+        <article class="team-card">
+          <div class="team-avatar">HC</div>
+          <h3>Helen J. Consiglio</h3>
+          <p class="team-role">Co-owner & Managing Partner</p>
+          <p>Relocation and luxury real estate across Lugano, Cannes, Milano, and Dubai.</p>
+        </article>
+        <article class="team-card">
+          <div class="team-avatar">AM</div>
+          <h3>Angelina Malerba</h3>
+          <p class="team-role">Co-owner & Partner</p>
+          <p>Off-market acquisitions and premium marketing for prestige properties.</p>
+        </article>
+        <article class="team-card">
+          <div class="team-avatar">LS</div>
+          <h3>Lorenzo Stroppa</h3>
+          <p class="team-role">Co-owner & Partner</p>
+          <p>Strategic advisory for sellers and international buyer networks.</p>
+        </article>
+      </div>
+      <p class="text-center mt-2"><a class="btn btn-outline" href="team.html">Meet the full team</a></p>
+    </div>
+  </section>
+
+  <section class="credentials-bar" aria-label="Credentials">
+    <div class="container credentials-inner">
+      <span>Swiss luxury real estate advisory</span>
+      <span class="credentials-sep" aria-hidden="true">·</span>
+      <span>Ticino specialists</span>
+      <span class="credentials-sep" aria-hidden="true">·</span>
+      <span>Off-market access by invitation</span>
+      <span class="credentials-sep" aria-hidden="true">·</span>
+      <span>International network</span>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container office-section">
+      <div class="section-head">
+        <span class="eyebrow">Visit us</span>
+        <h2>Lugano headquarters</h2>
+        <p>Private consultations by appointment — in person or by video call.</p>
+      </div>
+      <div class="office-grid">
+        <div class="office-info prose">
+          <p><strong>The Brick Luxury Properties</strong><br>Via Serafino Balestra 5 (3rd floor)<br>6900 Lugano, Switzerland</p>
+          <p><a href="mailto:info@thebrick.realestate">info@thebrick.realestate</a><br><a href="mailto:Helen@thebrick.realestate">Helen@thebrick.realestate</a></p>
+          <p class="partner-langs" style="margin-top:1rem">IT · EN · DE · FR</p>
+          <a class="btn btn-outline" href="contact.html" style="margin-top:1.25rem">Book a consultation</a>
+        </div>
+        <div class="office-map">
+          <iframe
+            title="The Brick office location — Lugano"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=8.9478%2C46.0022%2C8.9542%2C46.0058&layer=mapnik&marker=46.004%2C8.951"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <a class="office-map-link" href="https://www.google.com/maps/search/?api=1&query=Via+Serafino+Balestra+5,+6900+Lugano" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container faq-section">
+      <div class="section-head">
+        <span class="eyebrow">FAQ</span>
+        <h2>Common questions</h2>
+        <p>Transparency before you reach out — how we handle viewings, off-market access, and fees.</p>
+      </div>
+      <div class="faq-list" data-faq>
+        <details class="faq-item">
+          <summary>How do I access off-market properties?</summary>
+          <p>Off-market listings are not published on the website or portals. After a private consultation, we share opportunities that match your profile — subject to seller confidentiality and buyer qualification.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do you work with international buyers?</summary>
+          <p>Yes. We advise clients relocating to Ticino and buyers from across Europe and the Gulf — with support for legal coordination and settlement when needed.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How are viewings arranged?</summary>
+          <p>Viewings are private and by appointment only. We prepare a shortlist based on your criteria, then coordinate access with owners or their representatives — always with discretion.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What are your fees?</summary>
+          <p>Fees depend on the mandate (buyer representation, seller advisory, or off-market introduction). We discuss this transparently during the first consultation — no obligation.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can you help me sell a prestige property?</summary>
+          <p>Yes. We offer discreet seller advisory, premium marketing for public listings, and off-market placement when maximum confidentiality is required.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div class="prose">
+        <span class="eyebrow">About us</span>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;margin-bottom:1rem">Swiss luxury, global reach</h2>
+        <p>The Brick Luxury Properties specialises in identifying rare and off-market opportunities across Ticino and beyond. Our approach is deliberately niche — prioritising quality over volume.</p>
+        <p>With offices in Lugano, Cannes, Milano, and Dubai, we connect local expertise with an international network of qualified buyers and partners.</p>
+        <a class="btn btn-outline" href="about.html">Discover our story</a>
+      </div>
+      <img src="assets/hero.jpg" alt="Luxury interior">
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="js/site.js"></script>
+  <script>
+    document.getElementById('site-header').innerHTML = renderHeader({ variant: 'dark' });
+    document.getElementById('site-footer').innerHTML = renderFooter();
+    initMobileNav();
+
+    fetch('data/represented.json')
+      .then(r => r.json())
+      .then(items => {
+        const grid = document.getElementById('represented-grid');
+        if (!grid) return;
+        grid.innerHTML = items.map(item => `
+          <article class="represented-card">
+            <span class="represented-status represented-status--${item.status.toLowerCase()}">${item.status}</span>
+            <h3>${item.location}</h3>
+            <p>${item.type} · ${item.year}</p>
+          </article>
+        `).join('');
+      });
+
+    fetch('data/properties.json')
+      .then(r => r.json())
+      .then(properties => {
+        window.__featuredProperties = properties.filter(p => p.featured);
+        initHeroCarousel();
+        const grid = document.getElementById('featured-properties');
+        window.__featuredProperties.slice(0, 3).forEach(p => {
+          grid.innerHTML += `
+            <a class="card-link" href="properties/detail.html?id=${p.id}">
+              <article class="card">
+                <div class="card-image"><img src="${p.image}" alt="${p.title}"></div>
+                <div class="card-body">
+                  <h3>${p.title}</h3>
+                  <p>${p.location} · ${p.rooms} rooms · ${p.area}</p>
+                  <p class="card-price">${p.priceLabel}</p>
+                </div>
+              </article>
+            </a>`;
+        });
+      });
+  </script>
 </body>
 </html>

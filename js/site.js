@@ -13,6 +13,7 @@ function renderHeader(options = {}) {
       <nav aria-label="Main">
         <ul class="nav">
           <li><a href="${prefix}properties/" class="${active === 'properties' ? 'is-active' : ''}">Properties</a></li>
+          <li><a href="${prefix}off-market/" class="${active === 'offmarket' ? 'is-active' : ''}">Off-Market</a></li>
           <li><a href="${prefix}about.html" class="${active === 'about' ? 'is-active' : ''}">About</a></li>
           <li><a href="${prefix}team.html" class="${active === 'team' ? 'is-active' : ''}">Team</a></li>
           <li><a href="${prefix}contact.html" class="nav-cta ${active === 'contact' ? 'is-active' : ''}">Contact</a></li>
@@ -25,6 +26,7 @@ function renderHeader(options = {}) {
       <ul>
         <li><a href="${prefix}index.html">Home</a></li>
         <li><a href="${prefix}properties/">Properties</a></li>
+        <li><a href="${prefix}off-market/">Off-Market</a></li>
         <li><a href="${prefix}about.html">About</a></li>
         <li><a href="${prefix}team.html">Team</a></li>
         <li><a href="${prefix}contact.html">Contact</a></li>

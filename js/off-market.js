@@ -134,7 +134,9 @@ async function notifyTeam(lead, config) {
 
 function renderGate(root, config, onUnlocked) {
   const existingLead = getStoredLead();
-  const startStep = existingLead?.status === 'submitted' ? 3 : 1;
+  const urlParams = new URLSearchParams(window.location.search);
+  let startStep = existingLead?.status === 'submitted' ? 3 : 1;
+  if (urlParams.get('step') === '4' || window.location.hash === '#access') startStep = 4;
   let currentStep = startStep;
 
   function showStep(step) {
@@ -381,15 +383,13 @@ function renderOffMarketCard(p) {
     </a>`;
 }
 
-function renderOffMarketCatalog(root, config) {
+function renderOffMarketCatalog(root) {
   const access = getStoredAccess();
   const expires = access ? new Date(access.expiresAt).toLocaleString('en-CH', { dateStyle: 'medium', timeStyle: 'short' }) : '';
-  const hero = document.getElementById('offmarket-hero');
-  if (hero) {
-    hero.querySelector('h1').innerHTML = 'Reserved <span class="gold">Catalogue</span>';
-    hero.querySelector('p').textContent = 'Confidential listings — session active until ' + expires;
-  }
-  document.body.classList.add('offmarket-page--catalog');
+  const heroText = document.getElementById('offmarket-hero-text');
+  const heroTitle = document.querySelector('#offmarket-hero h1');
+  if (heroTitle) heroTitle.innerHTML = 'Reserved <span class="gold">Catalogue</span>';
+  if (heroText) heroText.textContent = `Confidential session — active until ${expires}`;
 
   root.innerHTML = `
     <div class="offmarket-catalog">
@@ -423,22 +423,22 @@ async function initOffMarketArea() {
   const root = document.getElementById('offmarket-root');
   if (!root) return;
 
-  const hero = document.getElementById('offmarket-hero');
-  if (hero && !getStoredAccess()) {
-    document.body.classList.remove('offmarket-page--catalog');
-    hero.querySelector('h1').innerHTML = 'Off-Market <span class="gold">Properties</span>';
-    hero.querySelector('p').textContent = 'Prestige residences unavailable on public portals — curated exclusively for qualified clients.';
+  const heroText = document.getElementById('offmarket-hero-text');
+  const heroTitle = document.querySelector('#offmarket-hero h1');
+  if (heroText && !getStoredAccess()) {
+    heroText.textContent = 'Exclusive residences by invitation — reviewed personally by The Brick.';
+    if (heroTitle) heroTitle.innerHTML = 'Off-Market <span class="gold">Properties</span>';
   }
 
   try {
     const config = await loadOffMarketConfig();
 
     if (getStoredAccess()) {
-      renderOffMarketCatalog(root, config);
+      renderOffMarketCatalog(root);
       return;
     }
 
-    renderGate(root, config, () => renderOffMarketCatalog(root, config));
+    renderGate(root, config, () => renderOffMarketCatalog(root));
   } catch {
     root.innerHTML = '<p class="no-results">Off-Market area unavailable.</p>';
   }

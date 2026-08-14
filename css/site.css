@@ -36,8 +36,8 @@ a { color: inherit; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem clamp(1.1rem, 3vw, 2.75rem);
+  gap: 1.25rem;
+  padding: 1.1rem clamp(1.1rem, 3vw, 2.75rem);
   position: relative;
   z-index: 10;
 }
@@ -46,7 +46,7 @@ a { color: inherit; }
 .site-header--dark .nav button,
 .site-header--dark .menu-toggle {
   color: #fff;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.55);
 }
 
 .site-header--light {
@@ -68,8 +68,12 @@ a { color: inherit; }
 
 .brand img {
   width: auto;
-  height: clamp(72px, 10vw, 100px);
+  height: clamp(64px, 8vw, 88px);
   filter: drop-shadow(0 4px 14px rgba(0,0,0,0.35));
+}
+
+.hero-home .brand img {
+  height: clamp(72px, 10vw, 100px);
 }
 
 .site-header--light .brand img {
@@ -79,12 +83,19 @@ a { color: inherit; }
 .nav {
   display: none;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.75rem;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 @media (min-width: 900px) {
   .nav { display: flex; }
+}
+
+.nav li {
+  display: flex;
+  align-items: center;
 }
 
 .nav a,
@@ -92,19 +103,33 @@ a { color: inherit; }
   background: none;
   border: 0;
   font: inherit;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
   letter-spacing: 0.02em;
+  white-space: nowrap;
+  line-height: 1;
+  padding: 0.35rem 0;
 }
 
 .nav a:hover,
-.nav button:hover { color: var(--gold); }
+.nav button:hover { color: var(--gold-deep); }
+
+.site-header--dark .nav a:hover,
+.site-header--dark .nav button:hover { color: var(--gold-bright); }
+
+.nav a.is-active {
+  color: var(--gold-deep);
+}
+
+.site-header--dark .nav a.is-active {
+  color: var(--gold-bright);
+}
 
 .nav .nav-cta {
   border: 1.5px solid var(--gold);
-  padding: 0.55rem 1.1rem;
+  padding: 0.6rem 1.15rem;
   border-radius: 999px;
   color: var(--gold-deep);
 }
@@ -112,12 +137,14 @@ a { color: inherit; }
 .site-header--dark .nav .nav-cta {
   color: #fff;
   border-color: var(--gold);
-  background: rgba(0,0,0,0.3);
+  background: rgba(0,0,0,0.35);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
 .site-header--dark .nav .nav-cta:hover {
   background: var(--gold);
   color: var(--ink);
+  text-shadow: none;
 }
 
 .nav .nav-cta.is-active {
@@ -812,12 +839,6 @@ a { color: inherit; }
   color: var(--gold-deep);
 }
 
-.offmarket-home .btn-outline:hover {
-  background: rgba(255,255,255,0.1);
-  color: #fff;
-  border-color: var(--gold-bright);
-}
-
 /* —— Team —— */
 
 .team-grid {
@@ -1369,156 +1390,91 @@ a { color: inherit; }
 
 /* —— Off-Market (Modulo 3) —— */
 
-.offmarket-page {
-  background: var(--bg);
-}
-
-.offmarket-hero {
-  position: relative;
-  min-height: clamp(16rem, 38vw, 22rem);
-  display: flex;
-  align-items: flex-end;
-  overflow: hidden;
-  color: #fff;
-}
-
-.offmarket-hero-bg {
-  position: absolute;
-  inset: 0;
-  background: url('../assets/villa-night.jpg') center / cover no-repeat;
-}
-
-.offmarket-hero-veil {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg,
-    rgba(0,0,0,0.55) 0%,
-    rgba(0,0,0,0.72) 55%,
-    rgba(0,0,0,0.88) 100%);
-}
-
-.offmarket-hero-inner {
-  position: relative;
-  z-index: 1;
-  padding: clamp(2.5rem, 6vw, 4rem) 0 clamp(2rem, 4vw, 3rem);
-  text-align: center;
-}
-
-.offmarket-hero-eyebrow {
-  color: var(--gold-bright) !important;
-}
-
-.offmarket-hero h1 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.25rem, 5vw, 3.25rem);
-  font-weight: 600;
-  margin: 0.5rem 0 0.75rem;
-}
-
-.offmarket-hero h1 .gold { color: var(--gold-bright); }
-
-.offmarket-hero p {
-  max-width: 32rem;
-  margin: 0 auto;
-  color: rgba(255,255,255,0.78);
-  font-size: 1.02rem;
-}
-
-.offmarket-page--catalog .offmarket-hero {
-  min-height: clamp(10rem, 22vw, 14rem);
-}
-
 .offmarket-main {
-  padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(3rem, 6vw, 5rem);
-  margin-top: -2.5rem;
-  position: relative;
-  z-index: 2;
+  padding-top: 0;
 }
 
 .offmarket-loading {
   text-align: center;
   color: var(--muted);
-  padding: 3rem 0;
+  padding: 2rem 0 3rem;
 }
 
 .offmarket-layout {
   display: grid;
-  gap: 2rem;
+  gap: 2.5rem;
   align-items: start;
 }
 
 @media (min-width: 960px) {
   .offmarket-layout {
-    grid-template-columns: minmax(240px, 0.85fr) minmax(0, 1.15fr);
-    gap: 2.5rem;
+    grid-template-columns: minmax(260px, 0.75fr) minmax(0, 1.25fr);
+    gap: 3rem;
   }
 }
 
 .offmarket-aside {
-  background: var(--ink);
-  color: rgba(255,255,255,0.82);
-  padding: clamp(1.75rem, 3vw, 2.25rem);
-  border-radius: 0.5rem;
-  border-bottom: 3px solid var(--gold);
+  padding: 0.25rem 0;
 }
 
 .offmarket-aside h2 {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.65rem;
-  color: #fff;
+  font-size: clamp(1.65rem, 3vw, 2rem);
+  color: var(--ink);
   margin-bottom: 0.75rem;
 }
 
 .offmarket-aside > p {
-  font-size: 0.92rem;
+  font-size: 0.95rem;
+  color: var(--muted);
   line-height: 1.65;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .offmarket-aside-list {
   list-style: none;
   margin: 0 0 1.5rem;
   padding: 0;
+  border-top: 1px solid var(--line);
 }
 
 .offmarket-aside-list li {
-  font-size: 0.88rem;
-  padding: 0.65rem 0;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
 }
 
 .offmarket-aside-list strong {
   display: block;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.35rem;
-  color: var(--gold-bright);
+  font-size: 1.75rem;
+  color: var(--gold-deep);
   font-weight: 600;
-  margin-bottom: 0.15rem;
+  line-height: 1.1;
+  margin-bottom: 0.2rem;
 }
 
 .offmarket-aside-note {
-  font-size: 0.82rem;
-  color: rgba(255,255,255,0.55);
+  font-size: 0.85rem;
+  color: var(--muted);
   font-style: italic;
 }
 
 .offmarket-panel {
   background: var(--white);
   border: 1px solid var(--line);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
   padding: clamp(1.75rem, 3vw, 2.5rem);
-  border-radius: 0.5rem;
 }
 
 .offmarket-panel-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.5rem;
+  font-size: 1.65rem;
   margin-bottom: 0.65rem;
 }
 
 .offmarket-step-note {
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   color: var(--muted);
   margin-bottom: 1.25rem;
 }
@@ -1526,12 +1482,12 @@ a { color: inherit; }
 .offmarket-form .btn,
 .offmarket-step .btn {
   width: 100%;
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
 }
 
 .offmarket-form-row {
   display: grid;
-  gap: 0 1rem;
+  gap: 0 1.25rem;
 }
 
 @media (min-width: 560px) {
@@ -1552,7 +1508,7 @@ a { color: inherit; }
 .offmarket-form select,
 .offmarket-form textarea {
   width: 100%;
-  padding: 0.7rem 0.9rem;
+  padding: 0.75rem 1rem;
   border: 1px solid var(--line);
   border-radius: 0.35rem;
   font: inherit;
@@ -1585,7 +1541,7 @@ a { color: inherit; }
   gap: 0.5rem;
   list-style: none;
   margin: 0 0 2rem;
-  padding: 0 0 1.25rem;
+  padding: 0 0 1.5rem;
   border-bottom: 1px solid var(--line);
 }
 
@@ -1599,8 +1555,8 @@ a { color: inherit; }
   content: '';
   position: absolute;
   top: 1rem;
-  left: calc(50% + 1rem);
-  width: calc(100% - 2rem);
+  left: calc(50% + 1.1rem);
+  width: calc(100% - 2.2rem);
   height: 1px;
   background: var(--line);
 }
@@ -1622,7 +1578,7 @@ a { color: inherit; }
   font-weight: 700;
   position: relative;
   z-index: 1;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.45rem;
 }
 
 .offmarket-progress-item.is-active .offmarket-progress-num,
@@ -1635,7 +1591,7 @@ a { color: inherit; }
 .offmarket-progress-label {
   display: block;
   font-size: 0.62rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -1709,7 +1665,6 @@ a { color: inherit; }
   background: var(--bg);
   border: 1px solid var(--line);
   padding: 1.25rem 1.35rem;
-  border-radius: 0.35rem;
   margin: 1.5rem 0;
 }
 
@@ -1738,8 +1693,6 @@ a { color: inherit; }
   text-decoration: underline;
 }
 
-/* Catalogue (unlocked) */
-
 .offmarket-catalog-bar {
   display: flex;
   flex-wrap: wrap;
@@ -1766,7 +1719,7 @@ a { color: inherit; }
   padding: 2rem 0 4rem;
 }
 
-.offmarket-page--detail .offmarket-confidential-strip {
+.offmarket-confidential-strip {
   font-size: 0.75rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1775,7 +1728,6 @@ a { color: inherit; }
   padding: 0.85rem;
   background: var(--bg);
   border: 1px solid var(--line);
-  border-radius: 0.35rem;
   margin-bottom: 1.5rem;
 }
 
@@ -1792,13 +1744,13 @@ a { color: inherit; }
   position: absolute;
   inset: 0;
   background: url('../assets/villa-night.jpg') center / cover no-repeat;
-  opacity: 0.35;
+  opacity: 0.28;
 }
 
 .offmarket-home-veil {
   position: absolute;
   inset: 0;
-  background: linear-gradient(105deg, rgba(0,0,0,0.92) 42%, rgba(0,0,0,0.55) 100%);
+  background: linear-gradient(105deg, rgba(0,0,0,0.94) 40%, rgba(0,0,0,0.6) 100%);
 }
 
 .offmarket-home .container {
@@ -1839,10 +1791,9 @@ a { color: inherit; }
 }
 
 .offmarket-home-card {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(198,164,106,0.35);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(198,164,106,0.4);
   padding: 1.75rem 2rem;
-  border-radius: 0.5rem;
   text-align: center;
   min-width: 14rem;
 }
@@ -1863,9 +1814,23 @@ a { color: inherit; }
   color: rgba(255,255,255,0.6);
 }
 
+.offmarket-home .btn-outline {
+  border-color: rgba(255,255,255,0.45);
+  color: #fff;
+}
+
+.offmarket-home .btn-outline:hover {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border-color: var(--gold-bright);
+}
+
 @media (max-width: 480px) {
   .offmarket-progress-label { display: none; }
-  .offmarket-aside { order: 2; }
+}
+
+@media (max-width: 959px) {
+  .offmarket-aside { order: 2; padding-top: 1rem; border-top: 1px solid var(--line); }
   .offmarket-panel { order: 1; }
 }
 

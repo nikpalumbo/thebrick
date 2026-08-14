@@ -99,6 +99,21 @@ function initHeroCarousel() {
   const dots = [...document.querySelectorAll('[data-hero-dot]')];
   if (!slides.length) return;
 
+  const captions = [
+    {
+      title: 'Lake Lugano',
+      text: 'Alpine water, Mediterranean light — the most sought-after shores of Ticino.',
+    },
+    {
+      title: 'Lugano waterfront',
+      text: 'The lakefront city: prestige residences, discretion, and a view that never repeats.',
+    },
+    {
+      title: 'Sunset over the lake',
+      text: 'Golden hour on Monte San Salvatore — where luxury living meets the landscape.',
+    },
+  ];
+
   let i = 0;
   function go(n) {
     slides[i]?.classList.remove('is-active');
@@ -111,14 +126,13 @@ function initHeroCarousel() {
 
   function updateCaption() {
     const cap = document.querySelector('[data-hero-caption]');
-    if (!cap || !window.__featuredProperties) return;
-    const p = window.__featuredProperties[i % window.__featuredProperties.length];
-    if (!p) return;
+    if (!cap) return;
+    const c = captions[i % captions.length];
     cap.innerHTML = `
-      <a href="properties/detail.html?id=${p.id}">
-        <h2>${p.title}</h2>
-        <p>${p.description.split('.')[0]}.</p>
-      </a>
+      <div>
+        <h2>${c.title}</h2>
+        <p>${c.text}</p>
+      </div>
     `;
   }
 

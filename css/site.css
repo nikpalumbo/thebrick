@@ -1434,3 +1434,181 @@ a { color: inherit; }
   color: var(--muted);
   font-size: 0.95rem;
 }
+
+/* —— Procedura Off-Market (4 step) —— */
+
+.offmarket-progress {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.35rem;
+  list-style: none;
+  margin: 1.75rem 0 2rem;
+  padding: 0;
+}
+
+.offmarket-progress-item {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.offmarket-progress-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 0.95rem;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: var(--line);
+  z-index: 0;
+}
+
+.offmarket-progress-item.is-done:not(:last-child)::after {
+  background: var(--gold);
+}
+
+.offmarket-progress-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  border: 2px solid var(--line);
+  background: var(--white);
+  font-size: 0.75rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0.35rem;
+}
+
+.offmarket-progress-item.is-active .offmarket-progress-num,
+.offmarket-progress-item.is-done .offmarket-progress-num {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: #fff;
+}
+
+.offmarket-progress-label {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.offmarket-progress-item.is-active .offmarket-progress-label {
+  color: var(--gold-deep);
+  font-weight: 700;
+}
+
+.offmarket-terms {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 1.25rem 1.35rem;
+  border-radius: 0.35rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+}
+
+.offmarket-terms ul {
+  margin: 0.75rem 0 0.75rem 1.1rem;
+  color: var(--muted);
+}
+
+.offmarket-terms li { margin-bottom: 0.45rem; }
+
+.offmarket-terms-note {
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.offmarket-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.88rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.offmarket-checkbox input {
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+  accent-color: var(--gold);
+}
+
+.offmarket-confirm {
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.offmarket-confirm-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold-deep));
+  color: #fff;
+  font-size: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+}
+
+.offmarket-confirm h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.offmarket-request-id {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: var(--gold-deep);
+}
+
+.offmarket-confirm-box {
+  text-align: left;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 1.25rem;
+  border-radius: 0.35rem;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+}
+
+.offmarket-confirm-box ol {
+  margin: 0.65rem 0 0 1.1rem;
+  color: var(--muted);
+}
+
+.offmarket-confirm-box li { margin-bottom: 0.35rem; }
+
+.offmarket-link-btn {
+  background: none;
+  border: 0;
+  color: var(--gold-deep);
+  font: inherit;
+  font-size: 0.88rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.offmarket-confidential-banner {
+  background: var(--ink);
+  color: var(--gold-bright);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.35rem;
+}
+
+@media (max-width: 480px) {
+  .offmarket-progress-label { display: none; }
+}

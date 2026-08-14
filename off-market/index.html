@@ -11,11 +11,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/site.css">
 </head>
-<body>
+<body class="offmarket-page">
   <div id="site-header"></div>
 
-  <main class="section section--white" id="offmarket-root">
-    <div class="container"><p style="text-align:center;color:var(--muted)">Loading…</p></div>
+  <section class="offmarket-hero" id="offmarket-hero">
+    <div class="offmarket-hero-bg" aria-hidden="true"></div>
+    <div class="offmarket-hero-veil" aria-hidden="true"></div>
+    <div class="container offmarket-hero-inner">
+      <span class="eyebrow offmarket-hero-eyebrow">Confidential · By invitation</span>
+      <h1>Off-Market <span class="gold">Properties</span></h1>
+      <p>Prestige residences unavailable on public portals — curated exclusively for qualified clients.</p>
+    </div>
+  </section>
+
+  <main class="offmarket-main">
+    <div class="container" id="offmarket-root">
+      <p class="offmarket-loading">Loading…</p>
+    </div>
   </main>
 
   <div id="site-footer"></div>
@@ -23,7 +35,7 @@
   <script src="../js/site.js"></script>
   <script src="../js/off-market.js"></script>
   <script>
-    document.getElementById('site-header').innerHTML = renderHeader({ variant: 'light', basePath: '../' });
+    document.getElementById('site-header').innerHTML = renderHeader({ variant: 'dark', basePath: '../' });
     document.getElementById('site-footer').innerHTML = renderFooter({ basePath: '../' });
     initMobileNav();
     initOffMarketArea();

@@ -6,10 +6,10 @@ const SESSION_KEY = 'tb-offmarket-access';
 const LEAD_KEY = 'tb-offmarket-lead';
 
 const STEPS = [
-  { id: 1, label: 'Riservatezza' },
-  { id: 2, label: 'Profilo' },
-  { id: 3, label: 'Conferma' },
-  { id: 4, label: 'Accesso' },
+  { id: 1, label: 'Agreement' },
+  { id: 2, label: 'Profile' },
+  { id: 3, label: 'Review' },
+  { id: 4, label: 'Access' },
 ];
 
 async function sha256(text) {
@@ -146,143 +146,159 @@ function renderGate(root, config, onUnlocked) {
     if (progress) {
       progress.outerHTML = renderStepIndicator(step);
     }
-    root.querySelector('.offmarket-gate-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    root.querySelector('.offmarket-panel')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   root.innerHTML = `
-    <div class="offmarket-gate">
-      <div class="offmarket-gate-card">
-        <span class="eyebrow">Confidenziale · Non indicizzato</span>
-        <h1>Area Off-Market</h1>
-        <p class="offmarket-intro">Catalogo riservato a clienti qualificati. Ogni richiesta viene esaminata personalmente dal team The Brick prima dell'accesso.</p>
+    <div class="offmarket-layout">
+      <aside class="offmarket-aside">
+        <h2>Access by qualification</h2>
+        <p>Every request is reviewed personally by The Brick. Approved clients receive a private access code within ${config.reviewHours || 48} hours.</p>
+        <ul class="offmarket-aside-list">
+          <li><strong>40+</strong> off-market opportunities</li>
+          <li><strong>100%</strong> confidential listings</li>
+          <li><strong>Not indexed</strong> on search engines</li>
+          <li><strong>Direct</strong> advisor contact</li>
+        </ul>
+        <p class="offmarket-aside-note">Already approved? Use the access code step to unlock the catalogue.</p>
+      </aside>
 
+      <div class="offmarket-panel">
         ${renderStepIndicator(currentStep)}
 
-        <!-- STEP 1 — Riservatezza -->
         <div class="offmarket-step" data-panel="1" ${currentStep !== 1 ? 'hidden' : ''}>
-          <h2>Accordo di riservatezza</h2>
+          <h3 class="offmarket-panel-title">Confidentiality agreement</h3>
           <div class="offmarket-terms">
-            <p>Accedendo a quest'area, l'utente si impegna a:</p>
+            <p>By proceeding, you agree to:</p>
             <ul>
-              <li>Non divulgare indirizzi, immagini o prezzi delle proprietà off-market a terzi</li>
-              <li>Non utilizzare i contenuti per scopi commerciali o di intermediazione non autorizzata</li>
-              <li>Contattare The Brick esclusivamente per acquisto o vendita personale qualificata</li>
-              <li>Rispettare la riservatezza richiesta dai proprietari e dai mandati in corso</li>
+              <li>Keep all property details, addresses, and pricing strictly confidential</li>
+              <li>Not share content with third parties or use it for unauthorised brokerage</li>
+              <li>Contact The Brick only for qualified personal purchase or sale</li>
+              <li>Respect owner privacy and active mandates at all times</li>
             </ul>
-            <p class="offmarket-terms-note">The Brick si riserva il diritto di revocare l'accesso in qualsiasi momento.</p>
           </div>
           <label class="offmarket-checkbox">
             <input type="checkbox" id="om-nda" required>
-            <span>Ho letto e accetto l'accordo di riservatezza</span>
+            <span>I have read and accept the confidentiality agreement</span>
           </label>
-          <button type="button" class="btn" id="om-to-step2" style="width:100%;margin-top:1.25rem">Continua — Compila il profilo</button>
+          <button type="button" class="btn" id="om-to-step2">Continue — Complete profile</button>
         </div>
 
-        <!-- STEP 2 — Profilo lead -->
         <div class="offmarket-step" data-panel="2" ${currentStep !== 2 ? 'hidden' : ''}>
-          <h2>Profilo acquirente</h2>
-          <p class="offmarket-step-note">Informazioni necessarie per valutare la richiesta. Tutti i campi contrassegnati sono obbligatori.</p>
-          <form class="contact-form" id="offmarket-lead-form">
-            <label for="om-name">Nome e cognome *</label>
-            <input id="om-name" name="name" type="text" required placeholder="Nome completo" autocomplete="name">
-
-            <label for="om-email">Email *</label>
-            <input id="om-email" name="email" type="email" required placeholder="you@example.com" autocomplete="email">
-
-            <label for="om-phone">Telefono *</label>
-            <input id="om-phone" name="phone" type="tel" required placeholder="+41 79 000 00 00" autocomplete="tel">
-
-            <label for="om-role">Sono *</label>
+          <h3 class="offmarket-panel-title">Buyer profile</h3>
+          <p class="offmarket-step-note">Required for qualification. Fields marked * are mandatory.</p>
+          <form class="contact-form offmarket-form" id="offmarket-lead-form">
+            <div class="offmarket-form-row">
+              <div>
+                <label for="om-name">Full name *</label>
+                <input id="om-name" name="name" type="text" required autocomplete="name">
+              </div>
+              <div>
+                <label for="om-email">Email *</label>
+                <input id="om-email" name="email" type="email" required autocomplete="email">
+              </div>
+            </div>
+            <div class="offmarket-form-row">
+              <div>
+                <label for="om-phone">Phone *</label>
+                <input id="om-phone" name="phone" type="tel" required autocomplete="tel">
+              </div>
+              <div>
+                <label for="om-country">Country of residence *</label>
+                <input id="om-country" name="country" type="text" required>
+              </div>
+            </div>
+            <label for="om-role">I am *</label>
             <select id="om-role" name="role" required>
-              <option value="">Seleziona…</option>
-              <option value="buyer">Acquirente privato</option>
-              <option value="seller">Venditore privato</option>
-              <option value="advisor">Consulente / family office</option>
-              <option value="agent">Agente immobiliare (con mandato)</option>
+              <option value="">Select…</option>
+              <option value="buyer">Private buyer</option>
+              <option value="seller">Private seller</option>
+              <option value="advisor">Advisor / family office</option>
+              <option value="agent">Licensed agent</option>
             </select>
-
-            <label for="om-country">Paese di residenza *</label>
-            <input id="om-country" name="country" type="text" required placeholder="Svizzera, Italia, …">
-
-            <label for="om-budget">Budget indicativo *</label>
-            <select id="om-budget" name="budget" required>
-              <option value="">Seleziona…</option>
-              <option value="CHF 2–5M">CHF 2–5M</option>
-              <option value="CHF 5–10M">CHF 5–10M</option>
-              <option value="CHF 10M+">CHF 10M+</option>
-              <option value="Undisclosed">Riservato</option>
-            </select>
-
-            <label for="om-timeline">Timeline *</label>
-            <select id="om-timeline" name="timeline" required>
-              <option value="">Seleziona…</option>
-              <option value="Within 3 months">Entro 3 mesi</option>
-              <option value="3–6 months">3–6 mesi</option>
-              <option value="6–12 months">6–12 mesi</option>
-              <option value="Exploring only">In esplorazione</option>
-            </select>
-
-            <label for="om-interest">Tipo di immobile *</label>
-            <select id="om-interest" name="interest" required>
-              <option value="">Seleziona…</option>
-              <option value="Lakefront villa">Villa fronte lago</option>
-              <option value="Penthouse / apartment">Attico / appartamento</option>
-              <option value="Investment property">Immobile d'investimento</option>
-              <option value="Other prestige residence">Altra residenza di prestigio</option>
-            </select>
-
-            <label for="om-financing">Finanziamento *</label>
-            <select id="om-financing" name="financing" required>
-              <option value="">Seleziona…</option>
-              <option value="Cash">Liquidità disponibile</option>
-              <option value="Pre-approved mortgage">Mutuo pre-approvato</option>
-              <option value="To be arranged">Da definire</option>
-            </select>
-
-            <label for="om-message">Requisiti aggiuntivi</label>
-            <textarea id="om-message" name="message" placeholder="Località preferite, caratteristiche essenziali…"></textarea>
-
+            <div class="offmarket-form-row">
+              <div>
+                <label for="om-budget">Budget *</label>
+                <select id="om-budget" name="budget" required>
+                  <option value="">Select…</option>
+                  <option value="CHF 2–5M">CHF 2–5M</option>
+                  <option value="CHF 5–10M">CHF 5–10M</option>
+                  <option value="CHF 10M+">CHF 10M+</option>
+                  <option value="Undisclosed">Undisclosed</option>
+                </select>
+              </div>
+              <div>
+                <label for="om-timeline">Timeline *</label>
+                <select id="om-timeline" name="timeline" required>
+                  <option value="">Select…</option>
+                  <option value="Within 3 months">Within 3 months</option>
+                  <option value="3–6 months">3–6 months</option>
+                  <option value="6–12 months">6–12 months</option>
+                  <option value="Exploring only">Exploring</option>
+                </select>
+              </div>
+            </div>
+            <div class="offmarket-form-row">
+              <div>
+                <label for="om-interest">Property type *</label>
+                <select id="om-interest" name="interest" required>
+                  <option value="">Select…</option>
+                  <option value="Lakefront villa">Lakefront villa</option>
+                  <option value="Penthouse / apartment">Penthouse / apartment</option>
+                  <option value="Investment property">Investment</option>
+                  <option value="Other prestige residence">Other prestige</option>
+                </select>
+              </div>
+              <div>
+                <label for="om-financing">Financing *</label>
+                <select id="om-financing" name="financing" required>
+                  <option value="">Select…</option>
+                  <option value="Cash">Cash ready</option>
+                  <option value="Pre-approved mortgage">Pre-approved mortgage</option>
+                  <option value="To be arranged">To be arranged</option>
+                </select>
+              </div>
+            </div>
+            <label for="om-message">Additional requirements</label>
+            <textarea id="om-message" name="message" rows="3" placeholder="Preferred locations, must-have features…"></textarea>
             <label class="offmarket-checkbox">
               <input type="checkbox" id="om-privacy" required>
-              <span>Acconsento al trattamento dei dati per la valutazione di questa richiesta *</span>
+              <span>I consent to data processing for this access request *</span>
             </label>
-
-            <button class="btn" type="submit" style="width:100%">Invia richiesta di accesso</button>
+            <button class="btn" type="submit">Submit access request</button>
           </form>
         </div>
 
-        <!-- STEP 3 — Conferma -->
         <div class="offmarket-step" data-panel="3" ${currentStep !== 3 ? 'hidden' : ''}>
           <div class="offmarket-confirm">
-            <div class="offmarket-confirm-icon" aria-hidden="true">✓</div>
-            <h2>Richiesta inviata</h2>
-            <p class="offmarket-request-id">ID richiesta: <strong id="om-request-id">${existingLead?.requestId || '—'}</strong></p>
-            <p>Il team The Brick valuterà il profilo entro <strong>${config.reviewHours || 48} ore lavorative</strong>.</p>
-            <p>Se approvata, riceverà un <strong>codice di accesso personale</strong> via email.</p>
+            <div class="offmarket-confirm-icon" aria-hidden="true"></div>
+            <h3 class="offmarket-panel-title">Request received</h3>
+            <p class="offmarket-request-id">Reference <strong id="om-request-id">${existingLead?.requestId || '—'}</strong></p>
+            <p>The Brick team will review your profile within <strong>${config.reviewHours || 48} business hours</strong>.</p>
+            <p>If approved, you will receive a <strong>personal access code</strong> by email.</p>
             <div class="offmarket-confirm-box">
-              <p><strong>Prossimi passi</strong></p>
+              <p class="offmarket-confirm-label">What happens next</p>
               <ol>
-                <li>Revisione profilo da parte di The Brick</li>
-                <li>Email con codice di accesso (solo se approvato)</li>
-                <li>Inserimento codice → catalogo riservato</li>
+                <li>Profile review by The Brick</li>
+                <li>Access code sent by email (if approved)</li>
+                <li>Enter code to view the reserved catalogue</li>
               </ol>
             </div>
-            <button type="button" class="btn" id="om-to-step4" style="width:100%">Ho già ricevuto il codice</button>
-            <p class="offmarket-alt"><a href="../contact.html">Contattaci direttamente →</a></p>
+            <button type="button" class="btn" id="om-to-step4">I have received my code</button>
+            <p class="offmarket-alt"><a href="../contact.html">Contact us directly</a></p>
           </div>
         </div>
 
-        <!-- STEP 4 — Codice accesso -->
         <div class="offmarket-step" data-panel="4" ${currentStep !== 4 ? 'hidden' : ''}>
-          <h2>Inserisci codice di accesso</h2>
-          <p class="offmarket-step-note">${config.accessCodeHint || 'Inserisca il codice ricevuto via email dopo l\'approvazione.'}</p>
-          <form class="contact-form" id="offmarket-access-form">
-            <label for="om-code">Codice di accesso</label>
-            <input id="om-code" name="code" type="password" required placeholder="Codice personale" autocomplete="off">
-            <p class="form-error" id="om-error" hidden>Codice non valido. Verifichi l'email ricevuta o contatti <a href="mailto:info@thebrick.realestate">info@thebrick.realestate</a>.</p>
-            <button class="btn" type="submit" style="width:100%">Accedi al catalogo riservato</button>
+          <h3 class="offmarket-panel-title">Enter access code</h3>
+          <p class="offmarket-step-note">${config.accessCodeHint || 'Use the code sent to you after approval.'}</p>
+          <form class="contact-form offmarket-form" id="offmarket-access-form">
+            <label for="om-code">Access code</label>
+            <input id="om-code" name="code" type="password" required placeholder="Personal code" autocomplete="off">
+            <p class="form-error" id="om-error" hidden>Invalid code. Check your email or contact <a href="mailto:info@thebrick.realestate">info@thebrick.realestate</a>.</p>
+            <button class="btn" type="submit">Unlock catalogue</button>
           </form>
-          <p class="offmarket-alt"><button type="button" class="offmarket-link-btn" id="om-back-step3">← Torna alla conferma richiesta</button></p>
+          <p class="offmarket-alt"><button type="button" class="offmarket-link-btn" id="om-back-step3">← Back to confirmation</button></p>
         </div>
       </div>
     </div>
@@ -301,7 +317,7 @@ function renderGate(root, config, onUnlocked) {
     e.preventDefault();
     const btn = e.target.querySelector('[type=submit]');
     btn.disabled = true;
-    btn.textContent = 'Invio in corso…';
+    btn.textContent = 'Submitting…';
 
     const fd = new FormData(e.target);
     const lead = {
@@ -367,20 +383,19 @@ function renderOffMarketCard(p) {
 
 function renderOffMarketCatalog(root, config) {
   const access = getStoredAccess();
-  const expires = access ? new Date(access.expiresAt).toLocaleString('it-CH') : '';
+  const expires = access ? new Date(access.expiresAt).toLocaleString('en-CH', { dateStyle: 'medium', timeStyle: 'short' }) : '';
+  const hero = document.getElementById('offmarket-hero');
+  if (hero) {
+    hero.querySelector('h1').innerHTML = 'Reserved <span class="gold">Catalogue</span>';
+    hero.querySelector('p').textContent = 'Confidential listings — session active until ' + expires;
+  }
+  document.body.classList.add('offmarket-page--catalog');
 
   root.innerHTML = `
     <div class="offmarket-catalog">
-      <div class="offmarket-confidential-banner">
-        ⚠ Contenuto confidenziale — divieto di divulgazione. Sessione valida fino al ${expires}.
-      </div>
-      <div class="offmarket-catalog-head">
-        <div>
-          <span class="eyebrow">Catalogo riservato</span>
-          <h1>Proprietà Off-Market</h1>
-          <p>Elenco non pubblico. Per visite o proposte contatti direttamente The Brick.</p>
-        </div>
-        <button type="button" class="btn btn-outline btn-sm" data-offmarket-logout>Termina sessione</button>
+      <div class="offmarket-catalog-bar">
+        <span class="offmarket-catalog-badge">Confidential session</span>
+        <button type="button" class="btn btn-outline btn-sm" data-offmarket-logout>End session</button>
       </div>
       <div id="offmarket-grid" class="properties-grid view-grid"></div>
     </div>
@@ -394,19 +409,26 @@ function renderOffMarketCatalog(root, config) {
   loadOffMarketProperties().then(items => {
     const grid = document.getElementById('offmarket-grid');
     if (!items.length) {
-      grid.innerHTML = '<p class="no-results">Nessun immobile off-market al momento. Contattaci per opportunità in arrivo.</p>';
+      grid.innerHTML = '<p class="no-results">No off-market listings at this time.</p>';
       return;
     }
     grid.innerHTML = items.map(renderOffMarketCard).join('');
   }).catch(() => {
     document.getElementById('offmarket-grid').innerHTML =
-      '<p class="no-results">Impossibile caricare il catalogo.</p>';
+      '<p class="no-results">Unable to load catalogue.</p>';
   });
 }
 
 async function initOffMarketArea() {
   const root = document.getElementById('offmarket-root');
   if (!root) return;
+
+  const hero = document.getElementById('offmarket-hero');
+  if (hero && !getStoredAccess()) {
+    document.body.classList.remove('offmarket-page--catalog');
+    hero.querySelector('h1').innerHTML = 'Off-Market <span class="gold">Properties</span>';
+    hero.querySelector('p').textContent = 'Prestige residences unavailable on public portals — curated exclusively for qualified clients.';
+  }
 
   try {
     const config = await loadOffMarketConfig();
@@ -418,7 +440,7 @@ async function initOffMarketArea() {
 
     renderGate(root, config, () => renderOffMarketCatalog(root, config));
   } catch {
-    root.innerHTML = '<p class="no-results">Area Off-Market non disponibile.</p>';
+    root.innerHTML = '<p class="no-results">Off-Market area unavailable.</p>';
   }
 }
 
@@ -452,7 +474,7 @@ async function initOffMarketDetail() {
       `<div class="property-gallery-thumb"><img src="${src}" alt="Photo ${i + 2}"></div>`).join('');
 
     root.innerHTML = `
-      <div class="offmarket-confidential-banner">⚠ Confidenziale — vietata la divulgazione di indirizzo, prezzo e immagini</div>
+      <p class="offmarket-confidential-strip">Confidential — do not share address, pricing, or images</p>
       <nav class="breadcrumb"><a href="../index.html">Home</a> · <a href="index.html">Off-Market</a> · ${p.title}</nav>
       <div class="property-gallery">
         <div class="property-gallery-main"><img src="${imgs[0]}" alt="${p.title}"></div>

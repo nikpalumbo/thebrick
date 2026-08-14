@@ -812,6 +812,12 @@ a { color: inherit; }
   color: var(--gold-deep);
 }
 
+.offmarket-home .btn-outline:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border-color: var(--gold-bright);
+}
+
 /* —— Team —— */
 
 .team-grid {
@@ -1363,35 +1369,152 @@ a { color: inherit; }
 
 /* —— Off-Market (Modulo 3) —— */
 
-.offmarket-gate {
-  max-width: 34rem;
-  margin: 0 auto;
-  padding: 1rem 0 3rem;
+.offmarket-page {
+  background: var(--bg);
 }
 
-.offmarket-gate-card {
-  background: var(--white);
-  border: 1px solid var(--line);
-  padding: clamp(1.75rem, 4vw, 2.5rem);
-  border-radius: 0.5rem;
+.offmarket-hero {
+  position: relative;
+  min-height: clamp(16rem, 38vw, 22rem);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  color: #fff;
 }
 
-.offmarket-gate-card h1 {
+.offmarket-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('../assets/villa-night.jpg') center / cover no-repeat;
+}
+
+.offmarket-hero-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(0,0,0,0.55) 0%,
+    rgba(0,0,0,0.72) 55%,
+    rgba(0,0,0,0.88) 100%);
+}
+
+.offmarket-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: clamp(2.5rem, 6vw, 4rem) 0 clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.offmarket-hero-eyebrow {
+  color: var(--gold-bright) !important;
+}
+
+.offmarket-hero h1 {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.85rem, 4vw, 2.35rem);
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  font-weight: 600;
   margin: 0.5rem 0 0.75rem;
 }
 
-.offmarket-intro {
-  color: var(--muted);
-  font-size: 0.95rem;
-  margin-bottom: 2rem;
+.offmarket-hero h1 .gold { color: var(--gold-bright); }
+
+.offmarket-hero p {
+  max-width: 32rem;
+  margin: 0 auto;
+  color: rgba(255,255,255,0.78);
+  font-size: 1.02rem;
 }
 
-.offmarket-step h2 {
+.offmarket-page--catalog .offmarket-hero {
+  min-height: clamp(10rem, 22vw, 14rem);
+}
+
+.offmarket-main {
+  padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(3rem, 6vw, 5rem);
+  margin-top: -2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.offmarket-loading {
+  text-align: center;
+  color: var(--muted);
+  padding: 3rem 0;
+}
+
+.offmarket-layout {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 960px) {
+  .offmarket-layout {
+    grid-template-columns: minmax(240px, 0.85fr) minmax(0, 1.15fr);
+    gap: 2.5rem;
+  }
+}
+
+.offmarket-aside {
+  background: var(--ink);
+  color: rgba(255,255,255,0.82);
+  padding: clamp(1.75rem, 3vw, 2.25rem);
+  border-radius: 0.5rem;
+  border-bottom: 3px solid var(--gold);
+}
+
+.offmarket-aside h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.65rem;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.offmarket-aside > p {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.offmarket-aside-list {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+}
+
+.offmarket-aside-list li {
+  font-size: 0.88rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.7);
+}
+
+.offmarket-aside-list strong {
+  display: block;
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.35rem;
-  margin-bottom: 0.35rem;
+  color: var(--gold-bright);
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+
+.offmarket-aside-note {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.55);
+  font-style: italic;
+}
+
+.offmarket-panel {
+  background: var(--white);
+  border: 1px solid var(--line);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  border-radius: 0.5rem;
+}
+
+.offmarket-panel-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.65rem;
 }
 
 .offmarket-step-note {
@@ -1400,12 +1523,51 @@ a { color: inherit; }
   margin-bottom: 1.25rem;
 }
 
-.offmarket-alt {
-  margin-top: 1rem;
-  font-size: 0.88rem;
+.offmarket-form .btn,
+.offmarket-step .btn {
+  width: 100%;
+  margin-top: 0.5rem;
 }
 
-.offmarket-alt a { color: var(--gold-deep); }
+.offmarket-form-row {
+  display: grid;
+  gap: 0 1rem;
+}
+
+@media (min-width: 560px) {
+  .offmarket-form-row { grid-template-columns: 1fr 1fr; }
+}
+
+.offmarket-form label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.35rem;
+}
+
+.offmarket-form input,
+.offmarket-form select,
+.offmarket-form textarea {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 0.35rem;
+  font: inherit;
+  font-size: 0.92rem;
+  margin-bottom: 1rem;
+  background: var(--bg);
+}
+
+.offmarket-alt {
+  margin-top: 1.25rem;
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+.offmarket-alt a { color: var(--gold-deep); font-weight: 600; }
 
 .form-error {
   color: #a33;
@@ -1415,35 +1577,16 @@ a { color: inherit; }
 
 .form-error a { color: inherit; }
 
-.offmarket-catalog-head {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 2rem;
-}
-
-.offmarket-catalog-head h1 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2rem, 4vw, 2.5rem);
-  margin: 0.35rem 0;
-}
-
-.offmarket-catalog-head p {
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-/* —— Procedura Off-Market (4 step) —— */
+/* Progress steps */
 
 .offmarket-progress {
   display: flex;
   justify-content: space-between;
-  gap: 0.35rem;
+  gap: 0.5rem;
   list-style: none;
-  margin: 1.75rem 0 2rem;
-  padding: 0;
+  margin: 0 0 2rem;
+  padding: 0 0 1.25rem;
+  border-bottom: 1px solid var(--line);
 }
 
 .offmarket-progress-item {
@@ -1455,12 +1598,11 @@ a { color: inherit; }
 .offmarket-progress-item:not(:last-child)::after {
   content: '';
   position: absolute;
-  top: 0.95rem;
-  left: 50%;
-  width: 100%;
-  height: 2px;
+  top: 1rem;
+  left: calc(50% + 1rem);
+  width: calc(100% - 2rem);
+  height: 1px;
   background: var(--line);
-  z-index: 0;
 }
 
 .offmarket-progress-item.is-done:not(:last-child)::after {
@@ -1471,16 +1613,16 @@ a { color: inherit; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.9rem;
-  height: 1.9rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
-  border: 2px solid var(--line);
+  border: 1.5px solid var(--line);
   background: var(--white);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   position: relative;
   z-index: 1;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.4rem;
 }
 
 .offmarket-progress-item.is-active .offmarket-progress-num,
@@ -1493,7 +1635,7 @@ a { color: inherit; }
 .offmarket-progress-label {
   display: block;
   font-size: 0.62rem;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -1505,25 +1647,18 @@ a { color: inherit; }
 
 .offmarket-terms {
   background: var(--bg);
-  border: 1px solid var(--line);
-  padding: 1.25rem 1.35rem;
-  border-radius: 0.35rem;
+  border-left: 3px solid var(--gold);
+  padding: 1.15rem 1.25rem;
   margin-bottom: 1.25rem;
   font-size: 0.9rem;
 }
 
 .offmarket-terms ul {
-  margin: 0.75rem 0 0.75rem 1.1rem;
+  margin: 0.65rem 0 0 1rem;
   color: var(--muted);
 }
 
-.offmarket-terms li { margin-bottom: 0.45rem; }
-
-.offmarket-terms-note {
-  font-size: 0.82rem;
-  color: var(--muted);
-  font-style: italic;
-}
+.offmarket-terms li { margin-bottom: 0.4rem; }
 
 .offmarket-checkbox {
   display: flex;
@@ -1531,61 +1666,67 @@ a { color: inherit; }
   gap: 0.65rem;
   font-size: 0.88rem;
   cursor: pointer;
-  margin-top: 0.5rem;
+  margin: 1rem 0;
 }
 
 .offmarket-checkbox input {
   margin-top: 0.2rem;
-  flex-shrink: 0;
   accent-color: var(--gold);
 }
 
-.offmarket-confirm {
-  text-align: center;
-  padding: 0.5rem 0;
-}
+.offmarket-confirm { text-align: center; }
 
 .offmarket-confirm-icon {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--gold-bright), var(--gold-deep));
-  color: #fff;
-  font-size: 1.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: 2px solid var(--gold);
   margin: 0 auto 1.25rem;
+  position: relative;
 }
 
-.offmarket-confirm h2 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.75rem;
-  margin-bottom: 0.75rem;
+.offmarket-confirm-icon::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  width: 0.5rem;
+  height: 1rem;
+  border: solid var(--gold);
+  border-width: 0 2px 2px 0;
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .offmarket-request-id {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   margin-bottom: 1rem;
   color: var(--gold-deep);
+  letter-spacing: 0.04em;
 }
 
 .offmarket-confirm-box {
   text-align: left;
   background: var(--bg);
   border: 1px solid var(--line);
-  padding: 1.25rem;
+  padding: 1.25rem 1.35rem;
   border-radius: 0.35rem;
   margin: 1.5rem 0;
-  font-size: 0.9rem;
+}
+
+.offmarket-confirm-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 .offmarket-confirm-box ol {
-  margin: 0.65rem 0 0 1.1rem;
+  margin: 0 0 0 1.1rem;
   color: var(--muted);
+  font-size: 0.9rem;
 }
-
-.offmarket-confirm-box li { margin-bottom: 0.35rem; }
 
 .offmarket-link-btn {
   background: none;
@@ -1595,20 +1736,136 @@ a { color: inherit; }
   font-size: 0.88rem;
   cursor: pointer;
   text-decoration: underline;
-  padding: 0;
 }
 
-.offmarket-confidential-banner {
-  background: var(--ink);
-  color: var(--gold-bright);
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
+/* Catalogue (unlocked) */
+
+.offmarket-catalog-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.offmarket-catalog-badge {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--gold-deep);
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+}
+
+.offmarket-detail-main {
+  padding: 2rem 0 4rem;
+}
+
+.offmarket-page--detail .offmarket-confidential-strip {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
   text-align: center;
-  padding: 0.75rem 1rem;
-  margin-bottom: 1.5rem;
+  padding: 0.85rem;
+  background: var(--bg);
+  border: 1px solid var(--line);
   border-radius: 0.35rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Homepage Off-Market CTA */
+
+.offmarket-home {
+  position: relative;
+  background: var(--ink);
+  color: #fff;
+  overflow: hidden;
+}
+
+.offmarket-home-bg {
+  position: absolute;
+  inset: 0;
+  background: url('../assets/villa-night.jpg') center / cover no-repeat;
+  opacity: 0.35;
+}
+
+.offmarket-home-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, rgba(0,0,0,0.92) 42%, rgba(0,0,0,0.55) 100%);
+}
+
+.offmarket-home .container {
+  position: relative;
+  z-index: 1;
+}
+
+.offmarket-home-grid {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+  padding: clamp(3rem, 7vw, 5rem) 0;
+}
+
+@media (min-width: 768px) {
+  .offmarket-home-grid { grid-template-columns: 1fr auto; }
+}
+
+.offmarket-home h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  margin-bottom: 0.75rem;
+}
+
+.offmarket-home h2 .gold { color: var(--gold-bright); }
+
+.offmarket-home p {
+  color: rgba(255,255,255,0.75);
+  max-width: 28rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.02rem;
+}
+
+.offmarket-home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.offmarket-home-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(198,164,106,0.35);
+  padding: 1.75rem 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  min-width: 14rem;
+}
+
+.offmarket-home-card strong {
+  display: block;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.5rem;
+  color: var(--gold-bright);
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+
+.offmarket-home-card span {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
 }
 
 @media (max-width: 480px) {
   .offmarket-progress-label { display: none; }
+  .offmarket-aside { order: 2; }
+  .offmarket-panel { order: 1; }
 }
+

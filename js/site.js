@@ -49,6 +49,7 @@ function renderFooter(options = {}) {
             <h4>Explore</h4>
             <ul>
               <li><a href="${prefix}properties/">Properties</a></li>
+              <li><a href="${prefix}off-market/">Off-Market</a></li>
               <li><a href="${prefix}about.html">About us</a></li>
               <li><a href="${prefix}team.html">Team</a></li>
               <li><a href="${prefix}contact.html">Contact</a></li>

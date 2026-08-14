@@ -37,13 +37,22 @@ jobs:
 
       - name: Prepare site
         run: |
-          mkdir -p site
-          cp index.html about.html team.html contact.html robots.txt CNAME site/
-          cp -R assets css js data properties off-market site/
+          mkdir -p site/preview
+          # Public: coming soon only
+          cp coming-soon/index.html site/index.html
+          cp coming-soon/styles.css site/styles.css
+          cp robots.txt CNAME site/
+          cp -R assets site/assets
+          # Client preview: full site (unlisted)
+          cp -R preview/. site/preview/
+          cp -R assets site/preview/assets
+          # noindex on all preview pages
+          find site/preview -name '*.html' -exec sed -i \
+            's|<head>|<head>\n  <meta name="robots" content="noindex, nofollow">|' {} +
           if [ -n "$OFF_MARKET_ACCESS_HASH" ]; then
             python3 -c "
           import json, os
-          path = 'site/data/off-market-config.json'
+          path = 'site/preview/data/off-market-config.json'
           with open(path) as f: cfg = json.load(f)
           cfg['accessHash'] = os.environ['OFF_MARKET_ACCESS_HASH']
           with open(path, 'w') as f: json.dump(cfg, f, indent=2)
@@ -52,7 +61,7 @@ jobs:
           if [ -n "$LEAD_WEBHOOK_URL" ]; then
             python3 -c "
           import json, os
-          path = 'site/data/off-market-config.json'
+          path = 'site/preview/data/off-market-config.json'
           with open(path) as f: cfg = json.load(f)
           cfg['leadWebhookUrl'] = os.environ['LEAD_WEBHOOK_URL']
           with open(path, 'w') as f: json.dump(cfg, f, indent=2)
@@ -61,7 +70,7 @@ jobs:
           if [ -n "$LEAD_FORMSPREE_ID" ]; then
             python3 -c "
           import json, os
-          path = 'site/data/off-market-config.json'
+          path = 'site/preview/data/off-market-config.json'
           with open(path) as f: cfg = json.load(f)
           cfg['formspreeFormId'] = os.environ['LEAD_FORMSPREE_ID']
           with open(path, 'w') as f: json.dump(cfg, f, indent=2)

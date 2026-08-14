@@ -1,0 +1,29 @@
+[
+  {
+    "id": "villa-montagnola-sold",
+    "crmId": "TB-008",
+    "title": "Historic villa, Montagnola",
+    "location": "Montagnola, Ticino",
+    "type": "villa",
+    "contract": "sale",
+    "status": "sold",
+    "visibility": "public",
+    "price": 5200000,
+    "priceLabel": "CHF 5'200'000",
+    "rooms": "6",
+    "area": "340 m²",
+    "image": "assets/villa-modern.jpg",
+    "images": [
+      "assets/villa-modern.jpg"
+    ],
+    "featured": false,
+    "description": "Successfully sold — a historic villa with panoramic views. Representative mandate by The Brick.",
+    "features": {
+      "Rooms": "6",
+      "Living area": "340 m²",
+      "Status": "Sold"
+    },
+    "updatedAt": "2026-08-10T10:00:00Z",
+    "statusLabel": "Sold"
+  }
+]

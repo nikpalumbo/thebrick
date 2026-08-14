@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-# Modulo 3 — Off-Market area is not indexed
-Disallow: /off-market/
+# Client preview — not for public indexing
+Disallow: /preview/

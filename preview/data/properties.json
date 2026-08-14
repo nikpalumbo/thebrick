@@ -1,0 +1,145 @@
+[
+  {
+    "id": "villa-lugano-lake",
+    "crmId": "TB-001",
+    "title": "Villa for sale on Lake Lugano",
+    "location": "Lugano, Ticino",
+    "type": "villa",
+    "contract": "sale",
+    "status": "active",
+    "visibility": "public",
+    "price": 8900000,
+    "priceLabel": "CHF 8'900'000",
+    "rooms": "6.5",
+    "area": "420 m²",
+    "image": "assets/villa-pool.jpg",
+    "images": [
+      "assets/villa-pool.jpg",
+      "assets/villa-modern.jpg",
+      "assets/hero.jpg"
+    ],
+    "featured": true,
+    "description": "A discreet lakeside residence with panoramic terrace and private garden. Curated by The Brick, this property offers refined living on one of Ticino's most sought-after shores.",
+    "features": {
+      "Rooms": "6.5",
+      "Living area": "420 m²",
+      "Plot": "1'200 m²",
+      "Lake view": "Yes",
+      "Garage": "2 spaces"
+    },
+    "updatedAt": "2026-08-01T10:00:00Z"
+  },
+  {
+    "id": "attico-paradiso",
+    "crmId": "TB-002",
+    "title": "Panoramic penthouse, Paradiso",
+    "location": "Paradiso, Lugano",
+    "type": "penthouse",
+    "contract": "sale",
+    "status": "active",
+    "visibility": "public",
+    "price": 4250000,
+    "priceLabel": "CHF 4'250'000",
+    "rooms": "4.5",
+    "area": "185 m²",
+    "image": "assets/villa-modern.jpg",
+    "images": [
+      "assets/villa-modern.jpg",
+      "assets/villa-pool.jpg"
+    ],
+    "featured": true,
+    "description": "An elegant penthouse with wrap-around terrace and uninterrupted lake views. Premium finishes and a private lift complete this exceptional address.",
+    "features": {
+      "Rooms": "4.5",
+      "Living area": "185 m²",
+      "Terrace": "95 m²",
+      "Lake view": "Yes",
+      "Lift": "Private"
+    },
+    "updatedAt": "2026-08-02T10:00:00Z"
+  },
+  {
+    "id": "villa-morcote",
+    "crmId": "TB-003",
+    "title": "Modern villa, Morcote",
+    "location": "Morcote, Ticino",
+    "type": "villa",
+    "contract": "sale",
+    "status": "active",
+    "visibility": "public",
+    "price": 6750000,
+    "priceLabel": "CHF 6'750'000",
+    "rooms": "5.5",
+    "area": "310 m²",
+    "image": "assets/villa-night.jpg",
+    "images": [
+      "assets/villa-night.jpg",
+      "assets/villa-modern.jpg"
+    ],
+    "featured": true,
+    "description": "Contemporary architecture meets Mediterranean charm. Pool, landscaped garden, and absolute privacy in the hills above the lake.",
+    "features": {
+      "Rooms": "5.5",
+      "Living area": "310 m²",
+      "Pool": "Heated",
+      "Garden": "Private",
+      "Garage": "3 spaces"
+    },
+    "updatedAt": "2026-08-03T10:00:00Z"
+  },
+  {
+    "id": "appartamento-centro",
+    "crmId": "TB-006",
+    "title": "Elegant apartment, Lugano centre",
+    "location": "Lugano, Ticino",
+    "type": "apartment",
+    "contract": "sale",
+    "status": "active",
+    "visibility": "public",
+    "price": 1980000,
+    "priceLabel": "CHF 1'980'000",
+    "rooms": "3.5",
+    "area": "120 m²",
+    "image": "assets/hero.jpg",
+    "images": [
+      "assets/hero.jpg"
+    ],
+    "featured": false,
+    "description": "Refined city living steps from the lake promenade. High ceilings, period details, and a quiet internal courtyard.",
+    "features": {
+      "Rooms": "3.5",
+      "Living area": "120 m²",
+      "Floor": "2nd",
+      "Balcony": "Yes"
+    },
+    "updatedAt": "2026-08-06T10:00:00Z"
+  },
+  {
+    "id": "villa-maggiore",
+    "crmId": "TB-007",
+    "title": "Lakefront villa, Lake Maggiore",
+    "location": "Minusio, Ticino",
+    "type": "villa",
+    "contract": "sale",
+    "status": "active",
+    "visibility": "public",
+    "price": 11900000,
+    "priceLabel": "CHF 11'900'000",
+    "rooms": "8",
+    "area": "520 m²",
+    "image": "assets/villa-pool.jpg",
+    "images": [
+      "assets/villa-pool.jpg",
+      "assets/villa-night.jpg"
+    ],
+    "featured": false,
+    "description": "A grand lakefront estate with private dock, mature gardens, and timeless elegance on the Maggiore shore.",
+    "features": {
+      "Rooms": "8",
+      "Living area": "520 m²",
+      "Lake front": "Yes",
+      "Dock": "Private"
+    },
+    "updatedAt": "2026-08-07T10:00:00Z"
+  }
+]

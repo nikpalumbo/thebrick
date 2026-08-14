@@ -2,6 +2,15 @@
 
 Static luxury real estate website for [www.thebrick.realestate](https://www.thebrick.realestate).
 
+## Public vs client preview
+
+| | URL |
+|---|-----|
+| **Public** (coming soon) | https://www.thebrick.realestate |
+| **Client preview** (full site) | https://www.thebrick.realestate/preview/ |
+
+See [CLIENT-PREVIEW.md](CLIENT-PREVIEW.md) for all preview links to share.
+
 ## Modules
 
 | Module | Status | Description |

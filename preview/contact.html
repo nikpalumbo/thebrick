@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — The Brick Luxury Properties</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow" style="color:var(--gold-bright)">Contact</span>
+      <h1>Private <span class="gold">consultation</span></h1>
+      <p>Whether you are buying, selling, or seeking off-market access — we respond with discretion and care.</p>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <h3>Offices</h3>
+        <p><strong>Lugano</strong><br>Via Serafino Balestra 5 (3rd floor)<br>6900 Lugano, Switzerland</p>
+        <p><strong>International</strong><br>Cannes · Milano · Dubai</p>
+        <p style="margin-top:1.5rem"><a href="mailto:info@thebrick.realestate">info@thebrick.realestate</a></p>
+        <p><a href="mailto:Helen@thebrick.realestate">Helen@thebrick.realestate</a></p>
+      </div>
+      <form class="contact-form sidebar-box" action="#" onsubmit="event.preventDefault(); alert('Thank you. We will contact you shortly.');">
+        <h3>Send a message</h3>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required placeholder="Your name">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required placeholder="you@example.com">
+        <label for="interest">I am interested in</label>
+        <select id="interest" name="interest">
+          <option>Buying a property</option>
+          <option>Selling a property</option>
+          <option>Off-Market access</option>
+          <option>General enquiry</option>
+        </select>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell us how we can help…"></textarea>
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1rem">Per accesso al catalogo riservato: <a href="off-market/">procedura Off-Market →</a></p>
+        <button class="btn" type="submit" style="width:100%">Send message</button>
+      </form>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+  <script src="js/site.js"></script>
+  <script>
+    document.getElementById('site-header').innerHTML = renderHeader({ variant: 'light', active: 'contact' });
+    document.getElementById('site-footer').innerHTML = renderFooter();
+    initMobileNav();
+  </script>
+</body>
+</html>

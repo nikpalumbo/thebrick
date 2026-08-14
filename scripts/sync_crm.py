@@ -22,7 +22,7 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "data"
+DATA = ROOT / "preview" / "data"
 
 
 def slugify(text: str) -> str:
@@ -182,6 +182,9 @@ def load_crm_feed() -> list[dict]:
             payload = json.loads(resp.read().decode("utf-8"))
     else:
         source_path = DATA / "crm-source.json"
+        if not source_path.exists():
+            # fallback: repo-root data during migration
+            source_path = ROOT / "data" / "crm-source.json"
         if not source_path.exists():
             print(f"No CRM_FEED_URL and no {source_path}", file=sys.stderr)
             sys.exit(1)

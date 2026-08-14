@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About us — The Brick Luxury Properties</title>
+  <meta name="description" content="About The Brick Luxury Properties — discreet luxury real estate in Ticino.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow" style="color:var(--gold-bright)">About us</span>
+      <h1>Luxury real estate with <span class="gold">discretion</span></h1>
+      <p>The Brick Luxury Properties — curated residences, off-market access, and a single trusted advisor across Ticino and international destinations.</p>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container split">
+      <img src="assets/villa-pool.jpg" alt="Luxury villa on Lake Lugano">
+      <div class="prose">
+        <h2>Our approach</h2>
+        <p>We believe luxury real estate is not about volume — it is about access, discretion, and the right match between property and client.</p>
+        <p>The Brick operates with a deliberately niche focus: identifying rare opportunities unavailable through conventional channels, and presenting them with the care they deserve.</p>
+        <p>From first consultation to keys in hand, our clients benefit from one point of contact — whether buying, selling, or relocating to Switzerland.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">What we offer</span>
+        <h2>End-to-end luxury advisory</h2>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="card-body">
+            <h3>Curated selection</h3>
+            <p>Hand-picked residences across Ticino — villas, penthouses, and lakefront estates.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-body">
+            <h3>Discreet process</h3>
+            <p>Private viewings, confidential negotiations, and a single trusted advisor throughout.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-body">
+            <h3>Off-Market access</h3>
+            <p>Exclusive opportunities unavailable through conventional channels — by invitation only.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container text-center">
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;margin-bottom:1rem">Ready to explore?</h2>
+      <p style="color:var(--muted);margin-bottom:1.5rem;max-width:32rem;margin-left:auto;margin-right:auto">Browse our curated selection or contact us for a private consultation.</p>
+      <a class="btn" href="properties/">View properties</a>
+      <a class="btn btn-outline" href="contact.html" style="margin-left:0.75rem">Contact us</a>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+  <script src="js/site.js"></script>
+  <script>
+    document.getElementById('site-header').innerHTML = renderHeader({ variant: 'light', active: 'about' });
+    document.getElementById('site-footer').innerHTML = renderFooter();
+    initMobileNav();
+  </script>
+</body>
+</html>

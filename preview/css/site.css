@@ -68,12 +68,16 @@ a { color: inherit; }
 
 .brand img {
   width: auto;
-  height: clamp(64px, 8vw, 88px);
+  height: auto;
+  max-height: 48px;
+  max-width: 132px;
+  object-fit: contain;
   filter: drop-shadow(0 4px 14px rgba(0,0,0,0.35));
 }
 
 .hero-home .brand img {
-  height: clamp(72px, 10vw, 100px);
+  max-height: 56px;
+  max-width: 148px;
 }
 
 .site-header--light .brand img {
@@ -263,16 +267,16 @@ a { color: inherit; }
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 7rem 1.25rem 2rem;
+  padding: 6.5rem 1.25rem 2rem;
 }
 
 .hero-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-weight: 600;
-  font-size: clamp(2.5rem, 6vw, 4.25rem);
-  line-height: 1.1;
-  max-width: 16ch;
-  margin-bottom: 2rem;
+  font-size: clamp(1.85rem, 4.2vw, 3.15rem);
+  line-height: 1.18;
+  max-width: 18ch;
+  margin-bottom: 1.5rem;
   text-shadow: 0 3px 28px rgba(0,0,0,0.55);
 }
 
@@ -281,16 +285,20 @@ a { color: inherit; }
 .search-pill {
   display: flex;
   flex-direction: column;
-  width: min(100%, 56rem);
+  width: min(100%, 52rem);
   background: #fff;
-  border-radius: 999px;
+  border-radius: 1.15rem;
   padding: 0.45rem;
   box-shadow: 0 22px 55px rgba(0,0,0,0.4);
   border: 1px solid rgba(198,164,106,0.55);
 }
 
 @media (min-width: 760px) {
-  .search-pill { flex-direction: row; align-items: stretch; }
+  .search-pill {
+    flex-direction: row;
+    align-items: stretch;
+    border-radius: 999px;
+  }
 }
 
 .search-field {
@@ -382,7 +390,11 @@ a { color: inherit; }
   background-size: cover;
   background-position: center;
   color: #fff;
-  padding: clamp(3rem, 8vw, 5rem) 0 clamp(2.5rem, 5vw, 3.5rem);
+  min-height: clamp(16rem, 32vh, 22rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2.25rem, 5vw, 3.25rem) 0;
   text-align: center;
   overflow: hidden;
 }
@@ -392,9 +404,9 @@ a { color: inherit; }
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg,
-    rgba(12, 10, 8, 0.55) 0%,
-    rgba(12, 10, 8, 0.42) 50%,
-    rgba(12, 10, 8, 0.62) 100%);
+    rgba(12, 10, 8, 0.52) 0%,
+    rgba(12, 10, 8, 0.4) 50%,
+    rgba(12, 10, 8, 0.58) 100%);
   pointer-events: none;
 }
 
@@ -409,22 +421,24 @@ a { color: inherit; }
 
 .page-hero h1 {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-size: clamp(1.7rem, 3.4vw, 2.65rem);
   font-weight: 600;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.55rem;
 }
 
 .page-hero p {
-  font-size: 1.05rem;
-  color: rgba(255,255,255,0.78);
-  max-width: 36rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.82);
+  max-width: 34rem;
   margin: 0 auto;
 }
 
 .page-hero .gold { color: var(--gold-bright); }
 
 .page-hero--compact {
-  padding: clamp(2.5rem, 6vw, 3.5rem) 0 clamp(2rem, 4vw, 2.5rem);
+  min-height: clamp(13rem, 26vh, 18rem);
+  padding: clamp(2rem, 4.5vw, 2.75rem) 0;
 }
 
 .breadcrumb {
@@ -490,9 +504,9 @@ a { color: inherit; }
 
 .section-head h2 {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.85rem, 4vw, 2.75rem);
+  font-size: clamp(1.55rem, 3.2vw, 2.25rem);
   font-weight: 600;
-  margin-bottom: 0.65rem;
+  margin-bottom: 0.55rem;
 }
 
 .section-head p {
@@ -992,8 +1006,11 @@ a { color: inherit; }
 }
 
 .footer-brand img {
-  height: 80px;
+  height: auto;
+  max-height: 52px;
+  max-width: 120px;
   width: auto;
+  object-fit: contain;
   margin-bottom: 1rem;
   filter: brightness(1.1);
 }

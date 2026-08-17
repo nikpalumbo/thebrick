@@ -49,15 +49,18 @@ body {
 
 .logo {
   width: auto;
-  height: clamp(160px, 28vw, 220px);
-  margin-bottom: 1.25rem;
+  height: auto;
+  max-height: 110px;
+  max-width: 160px;
+  object-fit: contain;
+  margin-bottom: 1rem;
 }
 
 .brand-name {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 300;
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  letter-spacing: 0.25em;
+  font-size: clamp(1.05rem, 2.8vw, 1.4rem);
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--gold);
 }
@@ -107,7 +110,7 @@ body {
 
 .announcement-text {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.75rem, 5vw, 2.75rem);
+  font-size: clamp(1.25rem, 3.2vw, 1.85rem);
   font-weight: 400;
   font-style: italic;
   color: var(--gold);
@@ -141,11 +144,6 @@ body {
 @media (min-width: 768px) {
   .page {
     padding: 4rem 2rem 5rem;
-  }
-
-  .logo {
-    height: 220px;
-    width: auto;
   }
 
   .header {
